@@ -58,4 +58,4 @@ def sums():
     except Exception as ex:
         print(f'Error: {ex}')
 
-sums(
+sums()
