@@ -8,42 +8,51 @@ def sums():
         end = int(input('end->'))
         nums = list()
         nums2 = list()
+        list2 = nums
+        list3 = list()
+        list4 = list()
 
 
         for i in range(size):
             nums.append(random.randint(start, end))
-        print(nums)
+        print(f'Перший список: {nums}')
         for i in range(size):
             nums2.append(random.randint(start, end))
-        print(nums2)
+        print(f'Другий список: {nums2}')
 
+        #елементи обох cписків (both)
         both = nums + nums2
-        print(both)
 
-        minmax = [min(nums), max(nums), min(nums2), max(nums2)]
-        print(minmax)
 
-        list2 = nums
-        list3 = list()
-
+        # елементи обох списків без повторень (list2)
         for i in nums2:
             if i not in nums:
                 list2.append(i)
 
+        # елементи, спільні для двох списків (list3)
         for i in nums:
-            if nums2.count(i) > 0 :
-                print(i)
+            if nums2.count(i) > 0 and nums.count(i) > 0:
                 list3.append(i)
 
+        # тільки унікальні елементи кожного зі списків (list4)
+        for i in nums:
+            if i not in nums2:
+                list4.append(i)
+        for i in nums2:
+            if i not in nums:
+                list4.append(i)
 
-        print(list2)
-        print(list3)
+        # тільки мінімальне та максимальне значення кожного зі списків (minmax)
+        minmax = [min(nums), max(nums), min(nums2), max(nums2)]
 
+        final_list = both, list2, list3, list4, minmax
 
-
-
-
-
+        print(f'Елементи обох cписків: {both}')
+        print(f'Елементи обох списків без повторень: {list2}')
+        print(f'Елементи, спільні для двох списків: {list3}')
+        print(f'Тільки унікальні елементи кожного зі списків: {list4}')
+        print(f'Тільки мінімальне та максимальне значення кожного зі списків: {minmax}')
+        print(f'Список з усіва вищепереліченими списками: {final_list}')
 
 
     except Exception as ex:
