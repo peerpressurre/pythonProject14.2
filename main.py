@@ -25,7 +25,7 @@ def sums():
 
 
         # елементи обох списків без повторень (list2)
-        list2 = sorted(set(both), key=both.index)
+        list2 = list(dict.fromkeys(both))
 
 
         # елементи, спільні для двох списків (list3)
@@ -33,12 +33,12 @@ def sums():
 
 
         # тільки унікальні елементи кожного зі списків (list4)
-        for i in nums:
-            if i not in nums2:
-                list4.append(i)
-        for i in nums2:
-            if i not in nums:
-                list4.append(i)
+        def list4(both):
+            biba = {}
+            for i in both:
+                biba[i] = biba[i] + 1 if i in biba else 1
+            return [i for i in biba.keys() if biba[i] == 1]
+
 
         # тільки мінімальне та максимальне значення кожного зі списків (minmax)
         minmax = [min(nums), max(nums), min(nums2), max(nums2)]
@@ -48,9 +48,9 @@ def sums():
         print(f'Елементи обох cписків: {both}')
         print(f'Елементи обох списків без повторень: {list2}')
         print(f'Елементи, спільні для двох списків: {list3}')
-        print(f'Тільки унікальні елементи кожного зі списків: {list4}')
+        print(f'Тільки унікальні елементи кожного зі списків: {list4(both)}')
         print(f'Тільки мінімальне та максимальне значення кожного зі списків: {minmax}')
-        print(f'Список з усіва вищепереліченими списками: {final_list}')
+        print(f'Список з усіма вищепереліченими списками: {final_list}')
 
 
     except Exception as ex:
