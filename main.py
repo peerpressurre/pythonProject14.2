@@ -25,14 +25,12 @@ def sums():
 
 
         # елементи обох списків без повторень (list2)
-        for i in nums2:
-            if i not in nums:
-                list2.append(i)
+        list2 = sorted(set(both), key=both.index)
+
 
         # елементи, спільні для двох списків (list3)
-        for i in nums:
-            if nums2.count(i) > 0 and nums.count(i) > 0:
-                list3.append(i)
+        list3 = [nums[i] for i in range(len(nums)) if nums[i] in nums2]
+
 
         # тільки унікальні елементи кожного зі списків (list4)
         for i in nums:
