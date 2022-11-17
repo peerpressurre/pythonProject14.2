@@ -29,7 +29,7 @@ def sums():
 
 
         # елементи, спільні для двох списків (list3)
-        list3 = [nums[i] for i in range(len(nums)) if nums[i] in nums2]
+        list3=[nums[i] for i in range(len(nums)) if nums[i] in nums2]
 
 
         # тільки унікальні елементи кожного зі списків (list4)
